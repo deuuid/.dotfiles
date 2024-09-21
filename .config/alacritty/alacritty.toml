@@ -1,6 +1,6 @@
 [window]
 padding = { x = 0, y = 0 }
-opacity = 0.8
+opacity = 0.5 
 
 [scrolling]
 multiplier = 1
@@ -10,7 +10,7 @@ normal = { family = "JetBrains Mono", style = "Regular" }
 size = 11
 
 [selection]
-save_to_clipboard = true
+save_to_clipboard = false
 
 [cursor]
 style = { shape = "Block", blinking = "Always" }

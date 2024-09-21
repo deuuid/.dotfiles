@@ -1,98 +1,76 @@
 // -*- mode: jsonc -*-
 {
     "height": 24,
-    "spacing": 0,
     "modules-left": [
         "hyprland/workspaces"
     ],
     "modules-right": [
-	//"bluetooth",
-        "network",
-	"pulseaudio",
         "cpu",
-        "memory",
         "temperature",
-	"disk",
-	"disk#2",
-        "backlight",
-        "battery",
-        "clock",
+        "memory",
+				"disk",
+				"disk#2",
+        //"backlight",
         "hyprland/language",
+        "network",
+				"pulseaudio",
+				"pulseaudio#2",
+				"clock",
+        "battery",
         "tray"
     ],
-    "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
     "hyprland/language": {
-	    "format": "{}",
-	    "format-en": "EN",
-	    "format-ru": "RU",
-	    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+	  		"format": "{}",
+		    "format-en": "EN",
+		    "format-ru": "RU",
+		    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
     },
     "tray": {
-        "icon-size": 16,
-        "spacing": 10
+        "icon-size": 14,
+        "spacing": 8
     },
     "clock": {
-	"format": "{:%H:%M %d %b}",
-        // "timezone": "America/New_York",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-	"calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    }
-        // "format-alt": "{:%Y-%m-%d}"
+				"format": "{:%d %b, %H:%M}",
+				"toolip": false
     },
     "cpu": {
-        "format": "CPU {usage}%",
+        "format": " {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "MEM {}%",
-	"on-click": "alacritty -e btop"
+        "format": " {}%"
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "{temperatureC}°C"
+        "format": " {temperatureC}"
     },
     "backlight": {
-        "format": "BL {percent}%"
+        "format": " {percent}%",
+				"tooltip": false
     },
     "battery": {
+				"format": "{capacity}% {icon}",
+        "format-full": "{icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""],
+				"tooltip-format": "{capacity}% (time to empty {time}, health {health})",
         "states": {
             "good": 80,
             "warning": 20,
             "critical": 10
-        },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        }
     },
     "network": {
-        "format-wifi": "{essid}",
+        "format-wifi": "",
         "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
+        "tooltip-format": "{essid} {ifname} via {gwaddr}  \n{ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-disconnected": " "
     },
     "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-muted": "  {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -101,27 +79,21 @@
             "portable": "",
             "car": "",
             "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+        }
+    },
+    "pulseaudio#2": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": ""
     },
     "disk": {
-	"interval": 60,
-	"format": "/ {percentage_used}%",
-	"path": "/",
-	"on-click": "alacritty -e yazi"
+				"interval": 60,
+				"format": " {percentage_used}% (/)",
+				"path": "/"
     },
     "disk#2": {
-	    "interval": 60,
-	    "format": "/home {percentage_used}%",
-	    "path": "/home"
-	},
-"bluetooth": {
-	"format": " {status}",
-	"format-connected": " {device_alias}",
-	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
-	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+        "interval": 60,
+				"format": " {percentage_used}% (home)",
+        "path": "/home"
     }
 }
