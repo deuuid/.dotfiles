@@ -81,3 +81,9 @@ tooltip {
 #clock, #custom-clock_fix {
     font-weight: 500;
 }
+
+#custom-arch {
+	font-size: 11px;
+	font-weight: 700;
+	padding: 0 10px;
+}

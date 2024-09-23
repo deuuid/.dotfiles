@@ -2,6 +2,7 @@
 {
     "height": 24,
     "modules-left": [
+				"custom/arch",
         "hyprland/workspaces"
     ],
     "modules-right": [
@@ -19,6 +20,11 @@
         "battery",
         "tray"
     ],
+		"custom/arch": {
+				"format": "arch",
+				"tooltip": false,
+				"on-click": "firefox https://archlinux.org"
+		},
     "hyprland/language": {
 	  		"format": "{}",
 		    "format-en": "EN",
